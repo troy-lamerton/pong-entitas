@@ -1,0 +1,27 @@
+# Windows
+Thumbs.db
+
+# Mac
+.DS_Store
+
+# Unity
+Library
+Temp
+*.unitypackage
+
+*-CSharp-vs.csproj
+*-CSharp.csproj
+
+*-CSharp-Editor.csproj
+*-CSharp-Editor-vs.csproj
+
+*-CSharp-firstpass.csproj
+
+# Xamarin
+obj
+*.userprefs
+test-results
+
+# Custom
+Entitas Shmup.sln
+Build
