@@ -1,24 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour {
+	GameContext _context;
 	Rigidbody2D rb;
+	public float startingSpeed = 4f;
 	// Use this for initialization
 	void Start () {
+		_context = Contexts.sharedInstance.game;
 		rb = this.GetComponent<Rigidbody2D> ();
-		rb.velocity = new Vector2(-4f, -1.2f);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-//		this.transform.position = new Vector3(Random.Range (-6, 6), Random.Range (-4, 4), 0);
+
+		rb.velocity = new Vector2(-10f, -3f);
+		rb.velocity = Vector2.ClampMagnitude (rb.velocity, startingSpeed);
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		Debug.Log (coll.gameObject.tag);
-		if (coll.gameObject.tag == "Paddle") {
-			rb.velocity = new Vector2(rb.velocity.x * 1.1f, rb.velocity.y * 1.1f);
+		
+		string oTag = coll.gameObject.tag;
+		string oName = coll.gameObject.name;
+
+		if (oTag == "Paddle") {
+			_context.CreateEntity ()
+				.AddCollider (this.gameObject, coll.gameObject);
+		} else if (oTag == "Boundary") {
+			_context.CreateEntity ()
+				.AddCollider (this.gameObject, coll.gameObject);
 		}
 	}
 }
