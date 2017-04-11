@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 public class InitPlayerSystem : IInitializeSystem {
 	
@@ -11,10 +12,12 @@ public class InitPlayerSystem : IInitializeSystem {
 	}
 
 	public void Initialize() {
+		float x = -6;
 		var e = _context.CreateEntity();
 		e.AddAsset("Paddle");
-		e.AddPosition(-5, 0);
-		e.AddMove(0, 0.025f);
+		e.AddPosition(x, 0);
+		e.AddLimitPosition (new Vector2 (x, -3.6f), new Vector2 (x, 3.6f));
+		e.AddMove(0, 0.06f);
 		e.isAcceleratable = true;
 	}
 }

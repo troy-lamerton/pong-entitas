@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using UnityEngine;
+using Entitas;
 
 public sealed class MoveSystem : IExecuteSystem {
 
@@ -12,7 +13,18 @@ public sealed class MoveSystem : IExecuteSystem {
 		foreach (var e in _group.GetEntities()) {
 			var move = e.move;
 			var pos = e.position;
-			e.ReplacePosition(pos.x, pos.y + move.speed);
+
+			float newPosX = pos.x;
+			float newPosY = pos.y;
+
+			if (e.hasLimitPosition) {
+				Vector2 min = e.limitPosition.min;
+				Vector2 max = e.limitPosition.max;
+				newPosX = Mathf.Clamp (pos.x, min.x, max.x);
+				newPosY = Mathf.Clamp (pos.y, min.y, max.y);
+			}
+
+			e.ReplacePosition(newPosX, newPosY + move.speed);
 		}
 	}
 }
