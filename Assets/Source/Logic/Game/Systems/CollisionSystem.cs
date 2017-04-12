@@ -61,7 +61,9 @@ public sealed class CollisionSystem : ReactiveSystem<GameEntity>, ICleanupSystem
 			}
 			else if (gameObjectB.tag == "Paddle") {
 				// increase velocity when ball hits paddle
-				rb.velocity = new Vector2(rb.velocity.x * 1.13f, rb.velocity.y * 1.13f);
+				float changeX = Mathf.Min (rb.velocity.x * 0.13f, 0.5f);
+				float changeY = Mathf.Min (rb.velocity.y * 0.13f, 0.5f);
+				rb.velocity = new Vector2(rb.velocity.x + changeX, rb.velocity.y + changeY);
 			}
 		}
 	}

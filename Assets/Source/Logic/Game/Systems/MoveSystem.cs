@@ -21,11 +21,11 @@ public sealed class MoveSystem : IExecuteSystem {
 			if (e.hasLimitPosition) {
 				Vector2 min = e.limitPosition.min;
 				Vector2 max = e.limitPosition.max;
-				newPosX = Mathf.Clamp (pos.x, min.x, max.x);
-				newPosY = Mathf.Clamp (pos.y, min.y, max.y);
+				newPosX = Mathf.Clamp (pos.x + move.speed, min.x, max.x);
+				newPosY = Mathf.Clamp (pos.y + move.speed, min.y, max.y);
 			}
 
-			e.ReplacePosition(newPosX, newPosY + move.speed);
+			e.ReplacePosition(newPosX, newPosY);
 		}
 	}
 }

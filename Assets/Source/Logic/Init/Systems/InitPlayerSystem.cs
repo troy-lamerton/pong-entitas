@@ -16,7 +16,8 @@ public class InitPlayerSystem : IInitializeSystem {
 		var e = _context.CreateEntity();
 		e.AddAsset("Paddle");
 		e.AddPosition(x, 0);
-		e.AddLimitPosition (new Vector2 (x, -3.6f), new Vector2 (x, 3.6f));
+		float limitY = 3.1f;
+		e.AddLimitPosition (new Vector2 (x, -limitY), new Vector2 (x, limitY));
 		e.AddMove(0, 0.06f);
 		e.isAcceleratable = true;
 	}

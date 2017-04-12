@@ -21,10 +21,7 @@ public class BallMovement : MonoBehaviour {
 		string oTag = coll.gameObject.tag;
 		string oName = coll.gameObject.name;
 
-		if (oTag == "Paddle") {
-			_context.CreateEntity ()
-				.AddCollider (this.gameObject, coll.gameObject);
-		} else if (oTag == "Boundary") {
+		if (oTag == "Paddle" | oTag == "Boundary") {
 			_context.CreateEntity ()
 				.AddCollider (this.gameObject, coll.gameObject);
 		}

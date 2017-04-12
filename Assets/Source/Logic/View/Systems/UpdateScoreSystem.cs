@@ -50,11 +50,7 @@ public class UpdateScoreSystem : IExecuteSystem, ICleanupSystem {
 				}
 				int updatedScore = _scoresEntity.scores.scores [ownerId];
 				_scoreTexts [ownerId].text = updatedScore.ToString();
-				Debug.Log ("we updated- " + _scoreTexts [ownerId].text);
 			}
-		}
-		else {
-			Debug.LogError ("Oh crap _scoresEntity is null");
 		}
 	}
 

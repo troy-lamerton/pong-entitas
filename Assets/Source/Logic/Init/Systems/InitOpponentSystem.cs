@@ -16,7 +16,9 @@ public class InitOpponentSystem : IInitializeSystem {
 		var e = _context.CreateEntity();
 		e.AddPosition(x, 0);
 		e.AddMove(0, 0.06f);
-		e.AddLimitPosition (new Vector2 (x, -3.6f), new Vector2 (x, 3.6f));
+		float limitY = 3.1f;
+		e.AddLimitPosition (new Vector2 (x, -limitY), new Vector2 (x, limitY));
 		e.AddAsset("Paddle");
+		e.AddAccelerateTowards ("Ball", 7f);
 	}
 }

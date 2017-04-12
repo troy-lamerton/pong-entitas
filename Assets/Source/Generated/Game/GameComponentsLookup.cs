@@ -9,21 +9,23 @@
 public static class GameComponentsLookup {
 
     public const int Acceleratable = 0;
-    public const int Asset = 1;
-    public const int ChangeScore = 2;
-    public const int Collider = 3;
-    public const int DebugMessage = 4;
-    public const int Destroyed = 5;
-    public const int LimitPosition = 6;
-    public const int Move = 7;
-    public const int Position = 8;
-    public const int Scores = 9;
-    public const int View = 10;
+    public const int AccelerateTowards = 1;
+    public const int Asset = 2;
+    public const int ChangeScore = 3;
+    public const int Collider = 4;
+    public const int DebugMessage = 5;
+    public const int Destroyed = 6;
+    public const int LimitPosition = 7;
+    public const int Move = 8;
+    public const int Position = 9;
+    public const int Scores = 10;
+    public const int View = 11;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "Acceleratable",
+        "AccelerateTowards",
         "Asset",
         "ChangeScore",
         "Collider",
@@ -38,6 +40,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AcceleratableComponent),
+        typeof(AccelerateTowardsComponent),
         typeof(AssetComponent),
         typeof(ChangeScoreComponent),
         typeof(ColliderComponent),

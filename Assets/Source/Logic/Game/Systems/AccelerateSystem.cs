@@ -7,7 +7,10 @@ public sealed class AccelerateSystem : ReactiveSystem<InputEntity> {
 	IGroup<GameEntity> _group;
 
 	public AccelerateSystem(Contexts contexts) : base(contexts.input) {
-		_group = contexts.game.GetGroup(Matcher<GameEntity>.AllOf(GameMatcher.Acceleratable, GameMatcher.Move));
+		_group = contexts.game.GetGroup(Matcher<GameEntity>.AllOf(
+											GameMatcher.Acceleratable,
+											GameMatcher.Move
+										));
 	}
 
 	protected override Collector<InputEntity> GetTrigger(IContext<InputEntity> context) {
