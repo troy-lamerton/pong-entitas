@@ -7,11 +7,9 @@ public class PauseContinueGame : MonoBehaviour {
 
 	void Start() {
 		pausePanel.SetActive(false);
-		Debug.Log ("esceeas");
 	}
 	void Update() {
 		if(Input.GetKeyDown (KeyCode.Escape)) {
-			Debug.Log ("esc");
 			if (!pausePanel.activeInHierarchy) {
 				PauseGame();
 			} else {
